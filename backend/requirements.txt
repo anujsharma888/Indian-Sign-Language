@@ -1,0 +1,11 @@
+fastapi
+uvicorn
+opencv-python
+mediapipe
+numpy
+python-multipart
+pillow
+scikit-learn
+pyttsx3
+matplotlib
+seaborn

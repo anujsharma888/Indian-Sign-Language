@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sign Buddy</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+<div class="wallpaper">
+  <div class="blob blob1"></div>
+  <div class="blob blob2"></div>
+  <div class="blob blob3"></div>
+  <div class="blob blob4"></div>
+</div>
+
+<div class="app">
+
+  <header class="topbar">
+    <div class="topbar-brand">
+      <div class="brand-mark">SB</div>
+      <span class="brand-name">Sign Buddy</span>
+      <span class="brand-ver">v2.0</span>
+    </div>
+    <nav class="tnav-row">
+      <button class="tn active">Detect</button>
+      <button class="tn">History</button>
+      <button class="tn">Settings</button>
+    </nav>
+    <div class="topbar-right">
+      <div class="status-pill">
+        <span class="sdot"></span>
+        <span id="statusText">Starting up…</span>
+      </div>
+      <div class="cam-indicator" id="camIndicator"></div>
+    </div>
+  </header>
+
+  <div class="workspace">
+
+    <aside class="left-col">
+
+      <div class="cam-card">
+        <div class="cam-inner">
+          <video id="video" autoplay playsinline muted></video>
+          <canvas id="canvas"></canvas>
+          <div class="scanlines"></div>
+          <div class="corners">
+            <div class="cm cm-tl"></div>
+            <div class="cm cm-tr"></div>
+            <div class="cm cm-bl"></div>
+            <div class="cm cm-br"></div>
+          </div>
+          <div class="bubble-wrap">
+            <svg class="hold-svg" viewBox="0 0 120 120">
+              <circle class="ring-bg" cx="60" cy="60" r="52"/>
+              <circle class="ring-fg" id="holdRing" cx="60" cy="60" r="52"/>
+            </svg>
+            <div class="letter-bubble">
+              <span id="hudLetter">?</span>
+            </div>
+          </div>
+        </div>
+        <div class="cam-foot">
+          <div class="cam-foot-left">
+            <span class="rec-dot"></span>
+            <span id="camFooter">Waiting for camera…</span>
+          </div>
+          <span class="fps-tag" id="fpsTag">– fps</span>
+        </div>
+      </div>
+
+      <div class="glass-card">
+        <div class="card-label">Detecting</div>
+        <div class="detect-row">
+          <div class="letter-display" id="prediction">–</div>
+          <div class="detect-meta">
+            <div class="conf-row">
+              <span class="conf-label">Conf</span>
+              <div class="conf-track">
+                <div class="conf-fill" id="confFill"></div>
+              </div>
+              <span class="conf-pct" id="confPct">–</span>
+            </div>
+            <canvas class="wave-canvas" id="waveCanvas"></canvas>
+          </div>
+        </div>
+      </div>
+
+      <div class="glass-card">
+        <div class="card-header">
+          <div class="card-label">Output</div>
+          <div class="word-actions">
+            <button class="act-btn" id="btnBackspace" title="Backspace">⌫</button>
+            <button class="act-btn" id="btnSpace" title="Space">SPC</button>
+            <button class="act-btn act-speak" id="btnSpeak">▶ SPEAK</button>
+            <button class="act-btn act-clear" id="btnClear">CLR</button>
+          </div>
+        </div>
+        <div class="word-display" id="word">
+          <span class="word-hint">Hold a sign to begin</span>
+        </div>
+        <div class="hint-keys">⌫ &nbsp;·&nbsp; space &nbsp;·&nbsp; ↵ speak &nbsp;·&nbsp; esc clear</div>
+      </div>
+
+    </aside>
+
+    <section class="log-col">
+      <div class="hist-card">
+        <div class="hist-top">
+          <div class="card-label">Session log</div>
+        </div>
+        <ul class="history-list" id="historyList">
+          <li class="history-empty">Nothing yet — start signing!</li>
+        </ul>
+      </div>
+    </section>
+
+  </div>
+</div>
+
+<script src="app.js"></script>
+</body>
+</html>
